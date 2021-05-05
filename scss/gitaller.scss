@@ -4,19 +4,19 @@ $blue: #7CC2EF;
 $yellow: #FCFA90;
 $purple: #EF8EE7;
 
-$width: 456px;
-$height: 48px;
+$width: 480px;
+$height: 72px;
 
 $top: 10px;
 $left: 10px;
 
-$button-height: 24px;
+$button-height: 48px;
 $button-width: 72px;
 $button-border: 2px;
 $button-margin: 2px;
 
-$pick-height: 11px;
-$pick-width: 40px;
+$pick-height: 23px;
+$pick-width: 44px;
 
 $wailing-height: 42px;
 $wailing-width: 31px;
@@ -62,7 +62,7 @@ $border-radius: $border-width;
                 }
                 //green
                 &.b{
-                    left: calc( ( #{$button-width} + #{$button-border} * 2 + #{$button-margin} ) * 1 );
+                    left: ($button-width + $button-border * 2 + $button-margin) * 1;
                     border-color: $green;
                     &.pressed{
                         background-color: $green;
@@ -70,7 +70,7 @@ $border-radius: $border-width;
                 }
                 //blue
                 &.x{
-                    left: calc( ( #{$button-width} + #{$button-border} * 2 + #{$button-margin} ) * 2 );
+                    left: ($button-width + $button-border * 2 + $button-margin) * 2;
                     border-color: $blue;
                     &.pressed{
                         background-color: $blue;
@@ -78,7 +78,7 @@ $border-radius: $border-width;
                 }
                 //yellow
                 &.y{
-                    left: calc( ( #{$button-width} + #{$button-border} * 2 + #{$button-margin} ) * 3 );
+                    left: ($button-width + $button-border * 2 + $button-margin) * 3;
                     border-color: $yellow;
                     &.pressed{
                         background-color: $yellow;
@@ -105,7 +105,7 @@ $border-radius: $border-width;
                     top: 0;
                     height: $button-height;
                     width: $button-width;
-                    left: calc( ( #{$button-width} + #{$button-border} * 2 + #{$button-margin} ) * 4 );
+                    left: ($button-width + $button-border * 2 + $button-margin) * 4;
                     border-color: $purple;
                     &.pressed{
                         background-color: $purple;
@@ -114,7 +114,7 @@ $border-radius: $border-width;
                 //up pick
                 &.right{
                     opacity: 1;
-                    left: 392px;
+                    left: 393px;
                     top: 0;
                     height: $pick-height;
                     width: $pick-width;
@@ -145,8 +145,8 @@ $border-radius: $border-width;
                 //down pick
                 &.left{
                     opacity: 1;
-                    left: 392px;
-                    top: 13px;
+                    left: 393px;
+                    top: $pick-height + $border_width;
                     &.pressed{
                         background-color: white;
                     }
@@ -156,47 +156,46 @@ $border-radius: $border-width;
                 }
             }
         }
-        .sticks{
-            display: none;
+        .dpad{
+            position: absolute;
+            width: $width;
+            height: $height;
+            top: $top;
+            left: $left;
+            .face{
+                position: absolute;
+                background-image: none;
+                background-repeat: no-repeat;
+                opacity: 1;
+                height: $wailing-height;
+                width: $wailing-width;
+                left: 446px;
+
+                //wailing up
+                &.up{
+                    top: 0;
+                    display: block;
+                    background-size: 18px;
+                    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20id%3D%22w%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2051%2071%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%2337b823%3Bstroke%3A%23f2f2f2%3Bstroke-miterlimit%3A10%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2225.43%201.85%2049.44%2025.86%2049.44%2048.85%2035.44%2034.85%2035.44%2069.86%2015.44%2069.86%2015.44%2034.85%201.52%2048.85%201.52%2025.86%2025.43%201.85%22%2F%3E%3C%2Fsvg%3E');
+                    filter: grayscale(100%) brightness(30%);
+                    &.pressed{
+                        filter: none;
+                    }
+                }
+                //wailing down
+                &.down{
+                    display: block;
+                    top: 27px;
+                    background-size: 18px;
+                    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20id%3D%22w%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2051%2071%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%234b8fff%3Bstroke%3A%23f2f2f2%3Bstroke-miterlimit%3A10%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2225.43%2069.86%2049.44%2045.85%2049.44%2022.86%2035.44%2036.85%2035.44%201.85%2015.44%201.85%2015.44%2036.85%201.52%2022.86%201.52%2045.85%2025.43%2069.86%22%2F%3E%3C%2Fsvg%3E');
+                    filter: grayscale(100%) brightness(30%);
+                    &.pressed{
+                        filter: none;
+                    }
+                }
+            }
         }
-        //.sticks{
-        //    position: absolute;
-        //    width: $width;
-        //    height: $height;
-        //    top: $top;
-        //    left: $left;
-        //    .stick{
-        //        position: absolute;
-        //        background-image: none;
-        //        background-repeat: no-repeat;
-        //        opacity: 1;
-        //        height: $wailing-height;
-        //        width: $wailing-width;
-        //        left: 400px;
-        //
-        //        //wailing up
-        //        &.left{
-        //            top: -2px;
-        //            display: block;
-        //            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20id%3D%22w%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2051%2071%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%2337b823%3Bstroke%3A%23f2f2f2%3Bstroke-miterlimit%3A10%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2225.43%201.85%2049.44%2025.86%2049.44%2048.85%2035.44%2034.85%2035.44%2069.86%2015.44%2069.86%2015.44%2034.85%201.52%2048.85%201.52%2025.86%2025.43%201.85%22%2F%3E%3C%2Fsvg%3E');
-        //            filter: grayscale(100%) brightness(80%);
-        //            &.pressed{
-        //                filter: none;
-        //            }
-        //        }
-        //        //wailing down
-        //        &.right{
-        //            display: block;
-        //            top: 50px;
-        //            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20id%3D%22w%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2051%2071%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%234b8fff%3Bstroke%3A%23f2f2f2%3Bstroke-miterlimit%3A10%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2225.43%2069.86%2049.44%2045.85%2049.44%2022.86%2035.44%2036.85%2035.44%201.85%2015.44%201.85%2015.44%2036.85%201.52%2022.86%201.52%2045.85%2025.43%2069.86%22%2F%3E%3C%2Fsvg%3E');
-        //            filter: grayscale(100%) brightness(80%);
-        //            &.pressed{
-        //                filter: none;
-        //            }
-        //        }
-        //    }
-        //}
-        .arrows, .touchpad, .quadrant, .wheels, .dpad, .fstick{
+        .arrows, .touchpad, .quadrant, .sticks, .wheels, .fstick{
             display: none;
         }
     }
