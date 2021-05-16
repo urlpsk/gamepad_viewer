@@ -4,7 +4,7 @@ $blue: #7CC2EF;
 $yellow: #FCFA90;
 $purple: #EF8EE7;
 
-$width: 480px;
+$width: 494px;
 $height: 72px;
 
 $top: 10px;
@@ -16,7 +16,7 @@ $button-border: 2px;
 $button-margin: 2px;
 
 $pick-height: 23px;
-$pick-width: 44px;
+$pick-width: 58px;
 
 $wailing-height: 42px;
 $wailing-width: 31px;
@@ -169,7 +169,7 @@ $border-radius: $border-width;
                 opacity: 1;
                 height: $wailing-height;
                 width: $wailing-width;
-                left: 446px;
+                left: 460px;
 
                 //wailing up
                 &.up{
